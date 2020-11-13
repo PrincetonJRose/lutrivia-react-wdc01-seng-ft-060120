@@ -1,0 +1,37 @@
+.app-name {
+    text-align: center;
+    vertical-align: center;
+}
+
+.app-name-div {
+    margin: auto;
+    width: 50%;
+}
+
+.question {
+    width: 50%;
+    border-style: solid;
+    border-color: darkorange;
+    padding: 10px;
+}
+
+.question-box {
+    padding-left: 20px;
+}
+
+.question-buttons {
+    padding-top: 5px;
+}
+
+.submit-score {
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.correct-answer {
+    color: green;
+}
+
+.incorrect-answer {
+    color: red;
+}

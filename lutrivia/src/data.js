@@ -1,4 +1,4 @@
-export default {
+const questionsData = {
     questions: [
         {
             text: "An otter's den is called a sofa.",
@@ -42,3 +42,5 @@ export default {
         }
     ]
 }
+
+export default questionsData
