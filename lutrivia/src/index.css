@@ -5,18 +5,22 @@
 
 .app-name-div {
     margin: auto;
-    width: 50%;
 }
 
 .question {
-    width: 50%;
+    width: 100%;
     border-style: solid;
     border-color: darkorange;
+    border-radius: 5px;
     padding: 10px;
 }
 
 .question-box {
-    padding-left: 20px;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
 }
 
 .question-buttons {
@@ -24,7 +28,8 @@
 }
 
 .submit-score {
-    padding-left: 20px;
+    display: flex;
+    justify-content: center;
     padding-bottom: 10px;
 }
 
@@ -34,4 +39,30 @@
 
 .incorrect-answer {
     color: red;
+}
+
+.score-display {
+    padding-left: 200px;
+}
+
+.new-game-button {
+    float: left;
+    border-color: green;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.new-game-button-div {
+    display: flex;
+    align-items: center;
+}
+
+.button-h4 {
+    margin: auto;
+}
+
+.score-div {
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }

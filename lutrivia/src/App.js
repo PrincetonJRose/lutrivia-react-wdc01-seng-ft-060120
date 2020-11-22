@@ -1,24 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import QuestionsContainer from './components/QuestionsContainer';
+import ScoreDisplay from './components/ScoreDisplay';
 import SubmitScore from './components/SubmitScore';
 import questionsData from './data'
 
 const App =( )=> {
 
   const [ questions, setQuestions ] = useState( [] )
-  const [ name, setName ] = useState( '' )
+  const [ name, setName ] = useState( ' ' )
   const [ highScore, setHighScore ] = useState( 0 )
+  const [ currentScore, setCurrentScore ] = useState( 0 )
 
   useEffect( ()=> {
-    setQuestions( questionsData.questions )
+    resetQuestions()
   }, [] )
 
-  const increaseScore =( )=> setHighScore( highScore + 1 )
+  const resetQuestions =( )=> {
+    setQuestions( [] )
+    setTimeout(() => {
+      setQuestions( questionsData.questions )
+    }, 1 );
+    setCurrentScore( 0 )
+  }
+
+  const increaseScore =( )=> setCurrentScore( currentScore + 1 )
 
   return (
     <div>
-      <Header />
+      <Header
+      />
+      <br/>
+      <ScoreDisplay
+        newGame = { resetQuestions }
+        currentScore = { currentScore }
+        highScore = { highScore }
+        name = { name }
+      />
       <br/>
       <QuestionsContainer
         questions = { questions }
