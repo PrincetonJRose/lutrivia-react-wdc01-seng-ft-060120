@@ -2,19 +2,28 @@ import React from 'react'
 
 const SubmitScore =( props )=> {
 
+    const { questionsAnswered, totalQuestions, setPlayerName, submitScore } = props
+
     return (
-        <div className='submit-score'>
+        <form
+            className='submit-score'
+            onSubmit = { (e) => {
+                e.preventDefault()
+                e.target.reset()
+            } }
+        >
             <input
                 type='text'
-                placeholder='Enter name'
-                onChange = { null }
+                placeholder=' Enter name...'
+                onChange = { (e) => setPlayerName( e.target.value ) }
             />
             <button
-                onClick = { null }
+                disabled = { questionsAnswered === totalQuestions ? false : true }
+                onClick = { (e) => submitScore() }
             >
                 Submit score!
             </button>
-        </div>
+        </form>
     )
 }
 

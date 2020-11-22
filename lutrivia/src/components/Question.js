@@ -18,6 +18,7 @@ const Question =( props )=> {
 
         setStatus( true )
         setChosen( userAnswer )
+        props.answerQuestion()
     }
 
     return (

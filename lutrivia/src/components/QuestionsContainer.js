@@ -8,6 +8,7 @@ const QuestionsContainer =( props )=> {
             key = { index }
             question = { question }
             increaseScore = { props.increaseScore }
+            answerQuestion = { props.answerQuestion }
         />
     )
 

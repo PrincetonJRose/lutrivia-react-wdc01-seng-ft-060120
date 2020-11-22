@@ -8,9 +8,11 @@ import questionsData from './data'
 const App =( )=> {
 
   const [ questions, setQuestions ] = useState( [] )
-  const [ name, setName ] = useState( ' ' )
+  const [ name, setName ] = useState( '' )
   const [ highScore, setHighScore ] = useState( 0 )
   const [ currentScore, setCurrentScore ] = useState( 0 )
+  const [ questionsAnswered, setQuestionsAnswered ] = useState( 0 )
+  const [ player, setPlayerName ] = useState( '' )
 
   useEffect( ()=> {
     resetQuestions()
@@ -22,14 +24,22 @@ const App =( )=> {
       setQuestions( questionsData.questions )
     }, 1 );
     setCurrentScore( 0 )
+    setQuestionsAnswered( 0 )
   }
 
   const increaseScore =( )=> setCurrentScore( currentScore + 1 )
+  const answerQuestion =( )=> setQuestionsAnswered( questionsAnswered + 1 )
+
+  const submitScore =( )=> {
+    if ( currentScore > highScore ) {
+      setHighScore( currentScore )
+      setName( player )
+    }
+  }
 
   return (
     <div>
-      <Header
-      />
+      <Header />
       <br/>
       <ScoreDisplay
         newGame = { resetQuestions }
@@ -41,10 +51,14 @@ const App =( )=> {
       <QuestionsContainer
         questions = { questions }
         increaseScore = { increaseScore }
+        answerQuestion = { answerQuestion }
       />
       <br/>
       <SubmitScore
-      
+        totalQuestions = { questions.length }
+        questionsAnswered = { questionsAnswered }
+        setPlayerName = { setPlayerName }
+        submitScore = { submitScore }
       />
     </div>
   );
